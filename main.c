@@ -14,7 +14,5 @@
 
 int	main(void)
 {
-	char str[] = "bonjl";
-	printf(" -> %s <- ", ft_substr(str, 2, 1));
 	return (0);
 }

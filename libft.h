@@ -31,6 +31,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *str);
 int		ft_strlen(const char *str);
+char	*ft_strjoin(char const *s1, char const *s2);
 int		ft_atoi(const char *str);
 int		ft_isalpha(char c);
 int     ft_isdigit(char c);
