@@ -14,5 +14,8 @@
 
 int	main(void)
 {
+	char str[50];
+
+	printf ("%s", ft_strtrim("Bonjour !", "nu"));
 	return (0);
 }

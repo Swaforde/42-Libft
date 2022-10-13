@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 
+char    *ft_strtrim(char const *s1, char const *set);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memset(void *str, int c, size_t len);
 void	*ft_strrchr(const char *str, int c);

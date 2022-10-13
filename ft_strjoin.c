@@ -26,7 +26,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!ptr)
 		return (NULL);
 	while (s1[index] != 0)
-		ptr[index] = s1[index++];
+	{
+		ptr[index] = s1[index];
+		index ++;
+	}
 	ptr_index = index;
 	index = 0;
 	while (s2[index] != 0)
