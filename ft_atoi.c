@@ -6,7 +6,7 @@
 /*   By: tbouvera <tbouvera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 10:43:54 by tbouvera          #+#    #+#             */
-/*   Updated: 2022/10/13 11:58:29 by tbouvera         ###   ########.fr       */
+/*   Updated: 2022/10/13 15:50:45 by tbouvera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,23 +23,15 @@ int	ft_atoi(const char *str)
 	is_negative = 0;
 	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
 		i ++;
-	if (str[i] == '-' ||  str[i] == '+')
+	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
-		{
 			is_negative = 1;
-		}
 		i ++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
-	{
-		return_value = return_value * 10 + (str[i] - 48);
-		i++;
-	}
+		return_value = return_value * 10 + (str[i++] - 48);
 	if (is_negative == 1)
-	{
-		return_value = return_value * -1;
-		return (return_value);
-	}
+		return (return_value * -1);
 	return (return_value);
 }
