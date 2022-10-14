@@ -58,7 +58,8 @@ char	**ft_split(char const *s, char c)
 			index ++;
 			size ++;
 		}
-		ptr[i] = calloc (sizeof(char), size + 1);
+		size ++;
+		ptr[i] = calloc (sizeof(char), (size));
 		if (!ptr[i])
 			return (NULL);
 		size = 0;
