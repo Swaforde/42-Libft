@@ -36,12 +36,15 @@ char	**ft_split(char const *s, char c)
 	int		size;
 	int		i;
 
+	if (!s[0])
+		return (0);
+
 	size = 0;
 	index = 0;
 	i = 0;
 	if (s == NULL)
 		return (NULL);
-	ptr = (char **)malloc (sizeof(char *) * ft_word_parsing(s, c));
+	ptr = calloc (sizeof(char *), ft_word_parsing(s, c) + 1);
 	if (!ptr)
 		return (NULL);
 	max_word = ft_word_parsing(s, c);
@@ -55,8 +58,9 @@ char	**ft_split(char const *s, char c)
 			index ++;
 			size ++;
 		}
-		printf ("mot ->%d nb de char ->%d\n", i, size);
 		ptr[i] = calloc (sizeof(char), size + 1);
+		if (!ptr[i])
+			return (NULL);
 		size = 0;
 		i++;
 	}
@@ -67,13 +71,12 @@ char	**ft_split(char const *s, char c)
 	{
 		while (s[index] == c)
 			index ++;
-		while (s[index + 1] != c && s[index] != 0)
+		while (s[index] != c && s[index] != 0)
 		{
-			printf ("%c", s[index]);
+			ptr[i][size] = s[index];
 			size ++;
 			index ++;
 		}
-		write (1, "\n", 1);
 		size = 0;
 		i++;
 	}

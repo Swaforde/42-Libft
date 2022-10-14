@@ -15,6 +15,6 @@
 int	main(void)
 {
 	char str[] = "bonjl";
-	printf ("%s", ft_strtrim("", ""));
+	ft_split("      split       this for   me  !       ", ' ');
 	return (0);
 }
