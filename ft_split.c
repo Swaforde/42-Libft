@@ -44,7 +44,7 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	if (s == NULL)
 		return (NULL);
-	ptr = calloc (sizeof(char *), ft_word_parsing(s, c) + 1);
+	ptr = ft_calloc (sizeof(char *), ft_word_parsing(s, c) + 1);
 	if (!ptr)
 		return (NULL);
 	max_word = ft_word_parsing(s, c);
