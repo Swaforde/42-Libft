@@ -6,7 +6,7 @@
 /*   By: tbouvera <tbouvera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 09:36:07 by tbouvera          #+#    #+#             */
-/*   Updated: 2022/10/14 11:39:56 by tbouvera         ###   ########.fr       */
+/*   Updated: 2022/10/14 11:47:56 by tbouvera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,6 @@ int	ft_get_ptr_size(int index, int last_index)
 	return (value);
 }
 
-char	*ft_custom_malloc(char *ptr, int size)
-{
-	ptr = (char *)malloc (sizeof(char) * size);
-	if (!ptr)
-		return (NULL);
-	ptr[0] = '\0';
-	return (ptr);
-}
-
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		index;
@@ -67,7 +58,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	ptr = NULL;
 	last_index = ft_strlen(s1) - 1;
 	if (ft_strlen(s1) == 0)
-		return (ft_custom_malloc(ptr, 1));
+		return (ft_calloc(sizeof(char), 1));
 	while (ft_checker(s1[last_index], set) == 1)
 		last_index--;
 	ptr_size = ft_get_ptr_size(index, last_index);
