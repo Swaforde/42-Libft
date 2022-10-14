@@ -6,7 +6,7 @@
 /*   By: tbouvera <tbouvera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:14:32 by tbouvera          #+#    #+#             */
-/*   Updated: 2022/10/13 12:59:17 by tbouvera         ###   ########.fr       */
+/*   Updated: 2022/10/14 09:37:13 by tbouvera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ char	*ft_strdup(const char *str);
 int		ft_strlen(const char *str);
 char	*ft_strjoin(char const *s1, char const *s2);
 int		ft_atoi(const char *str);
+char	*ft_strtrim(char const *s1, char const *set);
 int		ft_isalpha(char c);
 int     ft_isdigit(char c);
 int		ft_isalnum(int c);

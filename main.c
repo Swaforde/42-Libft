@@ -6,7 +6,7 @@
 /*   By: tbouvera <tbouvera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:18:32 by tbouvera          #+#    #+#             */
-/*   Updated: 2022/10/13 14:26:53 by tbouvera         ###   ########.fr       */
+/*   Updated: 2022/10/14 10:31:07 by tbouvera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 int	main(void)
 {
-	char str[50];
-
-	printf ("%s", ft_strtrim("Bonjour !", "nu"));
+	char str[] = "bonjl";
+	printf ("%s", ft_strtrim("", ""));
 	return (0);
 }

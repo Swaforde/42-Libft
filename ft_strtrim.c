@@ -5,68 +5,79 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbouvera <tbouvera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 09:46:35 by tbouvera          #+#    #+#             */
-/*   Updated: 2022/10/11 14:04:15 by tbouvera         ###   ########.fr       */
+/*   Created: 2022/10/14 09:36:07 by tbouvera          #+#    #+#             */
+/*   Updated: 2022/10/14 11:39:56 by tbouvera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_set_checker(char c, char const *set)
+int	ft_checker(char c, char const *set)
 {
-	int	index;
+	int	i;
 
-	index = 0;
-	while (set[index] != 0)
+	i = 0;
+	while (set[i] != 0)
 	{
-		if (c == set[index])
+		if (c == set[i])
 			return (1);
-		else
-			index++;
+		i++;
 	}
 	return (0);
 }
 
-int	ft_strlen_custom(char const *str, char const *set)
+int	ft_get_index(char const *str, char const *set)
 {
 	int	index;
-	int	return_value;
 
 	index = 0;
-	return_value = 0;
-	while (str[index] != 0)
-	{
-		if (ft_set_checker(str[index], set) == 1)
-			;
-		else
-			return_value++;
+	while (ft_checker(str[index], set) == 1)
 		index++;
-	}
-	return(return_value);
+	return (index);
 }
 
-char	*ptr_fill(char *ptr, char const *s1, char const *set)
+int	ft_get_ptr_size(int index, int last_index)
 {
-	int	index;
-	int	ptr_index;
+	int	value;
 
-	index = 0;
-	ptr_index = 0;
-	while (s1[index] != 0)
-	{
-		if (ft_set_checker(s1[index], set) == 0)
-			ptr[ptr_index++] = s1[index]; 
-		index++;
-	}
-	ptr[ptr_index] = 0;
+	value = 0;
+	while (index++ <= last_index)
+		value++;
+	return (value);
+}
+
+char	*ft_custom_malloc(char *ptr, int size)
+{
+	ptr = (char *)malloc (sizeof(char) * size);
+	if (!ptr)
+		return (NULL);
+	ptr[0] = '\0';
 	return (ptr);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
+	int		index;
+	int		last_index;
+	int		ptr_size;
 	char	*ptr;
-	ptr = (char *)malloc (sizeof(char) * ft_strlen_custom(s1, set) + 1);
+
+	index = ft_get_index(s1, set);
+	ptr_size = 0;
+	ptr = NULL;
+	last_index = ft_strlen(s1) - 1;
+	if (ft_strlen(s1) == 0)
+		return (ft_custom_malloc(ptr, 1));
+	while (ft_checker(s1[last_index], set) == 1)
+		last_index--;
+	ptr_size = ft_get_ptr_size(index, last_index);
+	ptr = (char *)malloc (sizeof(char) * ptr_size + 1);
 	if (!ptr)
 		return (NULL);
-	return (ptr_fill(ptr, s1, set));
+	ptr_size = 0;
+	index = ft_get_index(s1, set);
+	while (index <= last_index)
+		ptr[ptr_size++] = s1[index++];
+	ptr[ptr_size] = 0;
+	return (ptr);
 }
