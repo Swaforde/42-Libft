@@ -15,6 +15,13 @@
 int	main(void)
 {
 	char str[] = "bonjl";
-	ft_split("hello!", ' ');
+	char **ptr;
+	int	index = 0;
+	ptr = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'i');
+	index = 0;
+	while (ptr[index] != 0)
+	{
+		printf ("%s\n", ptr[index++]);
+	}
 	return (0);
 }

@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int ft_word_parsing(char const *str, char c)
+int	ft_word_parsing(char const *str, char c)
 {
 	int	word_count;
 	int	i;
@@ -28,44 +28,36 @@ int ft_word_parsing(char const *str, char c)
 	return (word_count);
 }
 
-char	**ft_split(char const *s, char c)
+void	ft_size_of_tab(char **ptr, char *s, char c, int max_word)
 {
-	char	**ptr;
-	int		index;
-	int		max_word;
 	int		size;
 	int		i;
-
-	if (!s[0])
-		return (0);
+	int		index;
 
 	size = 0;
-	index = 0;
 	i = 0;
-	if (s == NULL)
-		return (NULL);
-	ptr = ft_calloc (sizeof(char *), ft_word_parsing(s, c) + 1);
-	if (!ptr)
-		return (NULL);
-	max_word = ft_word_parsing(s, c);
-
+	index = 0;
 	while (i < max_word)
 	{
-		while (s[index + 1] == c)
+		while (s[index] == c)
 			index ++;
-		while (s[index + 1] != c && s[index] != 0)
-		{
-			index ++;
+		while (s[index] != c && s[index++] != 0)
 			size ++;
-		}
-		size ++;
-		ptr[i] = calloc (sizeof(char), (size));
+		ptr[i] = calloc (sizeof(char), (size + 1));
 		if (!ptr[i])
 			return (NULL);
 		size = 0;
 		i++;
 	}
+}
 
+void	ft_asign_char(char **ptr, char *s, char c, int max_word)
+{
+	int		size;
+	int		i;
+	int		index;
+
+	size = 0;
 	i = 0;
 	index = 0;
 	while (i < max_word)
@@ -73,14 +65,27 @@ char	**ft_split(char const *s, char c)
 		while (s[index] == c)
 			index ++;
 		while (s[index] != c && s[index] != 0)
-		{
-			ptr[i][size] = s[index];
-			size ++;
-			index ++;
-		}
+			ptr[i][size++] = s[index++];
 		size = 0;
 		i++;
 	}
+}
 
+char	**ft_split(char const *s, char c)
+{
+	char	**ptr;
+	int		index;
+	int		max_word;
+
+	index = 0;
+	max_word = 0;
+	ptr = ft_calloc (sizeof(char *), ft_word_parsing(s, c) + 1);
+	if (!ptr)
+		return (NULL);
+	if (!s)
+		return (NULL);
+	max_word = ft_word_parsing(s, c);
+	ft_size_of_tab(ptr, s, c, max_word);
+	ft_asign_char(ptr, s, c, max_word);
 	return (ptr);
 }
