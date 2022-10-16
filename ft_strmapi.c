@@ -27,5 +27,5 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		index ++;
 	}
 	ptr[index] = 0;
-    return (ptr);
+	return (ptr);
 }
