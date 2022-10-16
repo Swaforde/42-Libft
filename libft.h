@@ -42,6 +42,8 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 int		ft_isalpha(char c);
 int		ft_isdigit(char c);
 void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putendl_fd(char *s, int fd);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
