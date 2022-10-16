@@ -23,6 +23,7 @@
         "*.bms": "hlasm",
         "*.rex": "rexx",
         "*.rexx": "rexx",
-        "libft.h": "c"
+        "libft.h": "c",
+        "unistd.h": "c"
     }
 }

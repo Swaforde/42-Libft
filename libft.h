@@ -13,7 +13,6 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <unistd.h>
-# include <stdio.h>
 # include <stdlib.h>
 
 char	*ft_strtrim(char const *s1, char const *set);
@@ -39,8 +38,8 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
-int		ft_isalpha(char c);
-int		ft_isdigit(char c);
+int     ft_isalpha(int c);
+int		ft_isdigit(int c);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
