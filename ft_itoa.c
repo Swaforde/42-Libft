@@ -12,6 +12,21 @@
 
 #include "libft.h"
 
+void	ft_tab_fill_min_int(char *ptr)
+{
+	ptr[0] = '-';
+	ptr[1] = '2';
+	ptr[2] = '1';
+	ptr[3] = '4';
+	ptr[4] = '7';
+	ptr[5] = '4';
+	ptr[6] = '8';
+	ptr[7] = '3';
+	ptr[8] = '6';
+	ptr[9] = '4';
+	ptr[10] = '8';
+}
+
 int	ft_get_size(int nb)
 {
 	int	size;
@@ -30,21 +45,6 @@ int	ft_get_size(int nb)
 	if (nb < 10)
 		size++;
 	return (size);
-}
-
-void	ft_tab_fill_min_int(char *ptr)
-{
-	ptr[0] = '-';
-	ptr[1] = '2';
-	ptr[2] = '1';
-	ptr[3] = '4';
-	ptr[4] = '7';
-	ptr[5] = '4';
-	ptr[6] = '8';
-	ptr[7] = '3';
-	ptr[8] = '6';
-	ptr[9] = '4';
-	ptr[10] = '8';
 }
 
 void	ft_tab_fill(char *ptr, int nb, int max_index)
