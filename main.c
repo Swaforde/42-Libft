@@ -14,5 +14,6 @@
 
 int	main(void)
 {
+	ft_itoa(8124);
 	return (0);
 }
