@@ -43,7 +43,7 @@ void	ft_size_of_tab(char **ptr, char *s, char c, int max_word)
 			index ++;
 		while (s[index] != c && s[index++] != 0)
 			size ++;
-		ptr[i] = calloc (sizeof(char), (size + 1));
+		ptr[i] = ft_calloc (sizeof(char), (size + 1));
 		if (!ptr[i])
 			return (NULL);
 		size = 0;
