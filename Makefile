@@ -30,7 +30,7 @@ RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
 
 .c.o :
-	${CC} ${CFLAGS} -I ${INCLUDE} -c $< -o $(<:.c=.o)
+	${CC} ${CFLAGS} -c $< -o $(<:.c=.o)
 
 all : ${NAME}
 
@@ -41,7 +41,7 @@ bonus: ${OBJS_B} ${OBJS}
 	ar rc ${NAME} ${OBJS} ${OBJS_B}
 
 clean:
-	${RM} ${OBJS}
+	${RM} ${OBJS} ${OBJS_B}
 
 fclean: clean
 	${RM} ${NAME}

@@ -75,10 +75,8 @@ static void	ft_asign_char(char **ptr, const char *s, char c, int max_word)
 char	**ft_split(char const *s, char c)
 {
 	char	**ptr;
-	int		index;
 	int		max_word;
 
-	index = 0;
 	max_word = 0;
 	ptr = ft_calloc (sizeof(char *), ft_word_parsing(s, c) + 1);
 	if (!ptr)
