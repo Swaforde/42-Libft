@@ -14,9 +14,9 @@
 
 void	*ft_strrchr(const char *str, int c)
 {
-	int	index;
+	size_t	index;
 
-	index = (int)ft_strlen(str);
+	index = ft_strlen(str);
 	while (str[index] != ((char)c))
 	{
 		if (index == 0)
