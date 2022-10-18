@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tbouvera <tbouvera@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/17 11:53:43 by tbouvera          #+#    #+#             */
+/*   Updated: 2022/10/18 10:42:59 by tbouvera         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_tab_fill_min_int(char *ptr)
+static void	ft_tab_fill_min_int(char *ptr)
 {
 	ptr[0] = '-';
 	ptr[1] = '2';
@@ -16,7 +27,7 @@ void	ft_tab_fill_min_int(char *ptr)
 	ptr[10] = '8';
 }
 
-int	ft_get_size(int nb)
+static int	ft_get_size(int nb)
 {
 	int	size;
 
@@ -36,7 +47,7 @@ int	ft_get_size(int nb)
 	return (size);
 }
 
-void	ft_tab_fill(char *ptr, int nb, int max_index)
+static void	ft_tab_fill(char *ptr, int nb, int max_index)
 {
 	int	index;
 

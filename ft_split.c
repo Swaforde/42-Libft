@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tbouvera <tbouvera@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/17 11:54:23 by tbouvera          #+#    #+#             */
+/*   Updated: 2022/10/18 10:42:40 by tbouvera         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_word_parsing(char const *str, char c)
+static int	ft_word_parsing(char const *str, char c)
 {
 	int	word_count;
 	int	i;
@@ -17,7 +28,7 @@ int	ft_word_parsing(char const *str, char c)
 	return (word_count);
 }
 
-void	ft_size_of_tab(char **ptr, char *s, char c, int max_word)
+static int	ft_size_of_tab(char **ptr, const char *s, char c, int max_word)
 {
 	int		size;
 	int		i;
@@ -34,13 +45,14 @@ void	ft_size_of_tab(char **ptr, char *s, char c, int max_word)
 			size ++;
 		ptr[i] = ft_calloc (sizeof(char), (size + 1));
 		if (!ptr[i])
-			return (NULL);
+			return (0);
 		size = 0;
 		i++;
 	}
+	return (1);
 }
 
-void	ft_asign_char(char **ptr, char *s, char c, int max_word)
+static void	ft_asign_char(char **ptr, const char *s, char c, int max_word)
 {
 	int		size;
 	int		i;
@@ -74,7 +86,8 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	max_word = ft_word_parsing(s, c);
-	ft_size_of_tab(ptr, s, c, max_word);
+	if (!ft_size_of_tab(ptr, s, c, max_word))
+		return (NULL);
 	ft_asign_char(ptr, s, c, max_word);
 	return (ptr);
 }
