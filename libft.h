@@ -14,6 +14,7 @@
 # define LIBFT_H
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdarg.h>
 
 typedef struct s_list
 {
@@ -63,4 +64,11 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t dstsize);
 size_t	ft_strlen(const char *str);
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstnew(void *content);
+int		ft_printf(const char *str, ...);
+int		ft_increment_putchar(int c);
+int		ft_increment_putstr(char *s);
+int		ft_increment_percent(void);
+int		ft_dec_to_hex(unsigned int n, int mod);
+char	*ft_increment_itoa(unsigned int n);
+int		ft_print_ptr(unsigned long long ptr);
 #endif
